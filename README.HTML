@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECE 534 Final Project</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; line-height: 1.6; color: #24292e; max-width: 800px; margin: 40px auto; padding: 0 20px; }
+        h1 { border-bottom: 1px solid #eaecef; padding-bottom: 0.3em; }
+        h2 { border-bottom: 1px solid #eaecef; padding-bottom: 0.3em; margin-top: 24px; }
+        p { margin-top: 0; margin-bottom: 16px; }
+        .equation { font-style: italic; font-family: "Times New Roman", Times, serif; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>534_Final_Project</h1>
+        <p><strong>534 Final Project Two-Stage Programmable Gain OTA</strong></p>
+    </header>
+
+    <section>
+        <h2>Introduction</h2>
+        <p>
+            For the final project of ECE 534, I was asked to create a high-precision, programmable-gain, multi-stage, switched-capacitor amplifier. I created this circuit by using multiple techniques to account for non-idealities encountered in practice. By using a two-phase non-overlapping clock, I created two phases in which the circuit operates in different regions: pre-amplification and amplification. This allows for switched-capacitor amplification.
+        </p>
+        
+        <p>
+            One of the issues I had to address was using MOSFETs as resistors. MOSFETs have a non-constant <span class="equation">R<sub>on</sub></span> value that can drastically affect circuit functionality. To mitigate this, I used constant <span class="equation">V<sub>GS</sub></span> sampling to achieve a more consistent <span class="equation">R<sub>on</sub></span>. Constant <span class="equation">V<sub>GS</sub></span> sampling employs a clock multiplier circuit to generate an output of <span class="equation">2V<sub>DD</sub></span>. Then, using a bootstrap capacitor, an inverter, and proper biasing, I created a switch with a more constant <span class="equation">R<sub>on</sub></span> value.
+        </p>
+
+        
+
+        <p>
+            I also could not use ideal switches, so I implemented CMOS configurations to create the switches. However, CMOS switches introduce charge injection. To eliminate this effect, I used bottom-plate sampling, which employs a slightly delayed clock to redirect any residual charge injection to ground. This grounding does not affect the overall functionality of the switched-capacitor amplifier.
+        </p>
+
+        
+
+        <p>
+            Finally, I created a programmable gain selector to allow for gain adjustment. This gain selection allows the input signal to be amplified by factors of 4, 8, or 12, which is essential for the multi-stage output gain.
+        </p>
+    </section>
+
+</body>
+</html>
