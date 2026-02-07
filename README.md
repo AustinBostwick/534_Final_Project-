@@ -1,2 +1,8 @@
 # 534_Final_Project-
 534 Final Project Two Stage Programmable Gain OTA
+
+Introduction
+	For the final project of ECE 534, we were asked to create a high-precision, programmable gain, multi-stage, switched-capcitor amplifier. We will be able to create this circuit by utilizing many technologies to account for non-idealities that occur. By utilizing a two phase non-overlapping clock, we can create two phases in which the circuit can operate in two different regions, pre-amplification, and amplification. With this we can create the switched-capacitor amplification.	
+One of the issues we have to solve is mosfets as resistors. Mosfets have an non constant Ron value that can drastically change the functionality of the circuit. Therefore, we use constant Vgs sampling to create a more consistent Ron value. Constant Vgs sampling uses a clock multiplier circuit in order to create an output of 2*Vdd. Then using a bootstrap capacitor, an inverter, and biasing, we can create a switch that has a more constant Ron value. 
+	 We also can not use ideal switches, so we use CMOS configurations to create a switch. With the CMOS switches, we have an issue with charge injection. Then to get rid of any charge injection, we use bottom plate sampling. Which uses a slight delay clock in order to take any residual charge injection and takes it to ground. This grounding does not affect the overall functionality of the switched-capacitor amplifier. 
+	Finally, we create programmable gain selector to allow for gain selection. This gain selection can get time 4,8, or 12 our input signal. Which is paramount for the functionality of the multi-stage output gain. 
